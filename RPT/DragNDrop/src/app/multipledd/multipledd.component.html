@@ -1,0 +1,42 @@
+<div cdkDropListGroup>
+  <h1>DragDrop MultiDrag</h1>
+  <div class="example-container">
+    <h2>To do</h2>
+
+    <div class="example-list"
+         cdkDropList
+         cdkDropListOrientation="horizontal"
+         [cdkDropListData]="todo"
+         (cdkDropListDropped)="drop($event);multiSelect.dropListDropped($event)">
+      <div class="example-box" *ngFor="let item of todo"
+           cdkDrag
+           (pointerdown)="multiSelect.mouseDown($event)"
+           (pointerup)="multiSelect.mouseUp($event)"
+           (cdkDragStarted)="multiSelect.dragStarted();multiDrag.dragStarted($event)"
+           (cdkDragEnded)="multiSelect.dragEnded()">
+        {{item}}
+        <!--<div>type 1</div>-->
+      </div>
+    </div>
+  </div>
+  <br /><br /><br />
+  <div class="example-container">
+    <h2>Done</h2>
+
+    <div class="example-list"
+         cdkDropList
+         cdkDropListOrientation="horizontal"
+         [cdkDropListData]="done"
+         (cdkDropListDropped)="drop($event);multiSelect.dropListDropped($event)">
+      <div class="example-box" *ngFor="let item of done"
+           cdkDrag
+           (pointerdown)="multiSelect.mouseDown($event)"
+           (pointerup)="multiSelect.mouseUp($event)"
+           (cdkDragStarted)="multiSelect.dragStarted();multiDrag.dragStarted($event)"
+           (cdkDragEnded)="multiSelect.dragEnded()">
+        {{item}}
+        <!--<div>type 2</div>-->
+      </div>
+    </div>
+  </div>
+</div>

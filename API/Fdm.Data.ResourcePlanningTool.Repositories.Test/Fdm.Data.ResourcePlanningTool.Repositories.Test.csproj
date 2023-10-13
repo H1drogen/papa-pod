@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="FluentAssertions" Version="6.8.0" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.10" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
+		<PackageReference Include="Moq" Version="4.18.2" />
+		<PackageReference Include="NBuilder" Version="6.1.0" />
+		<PackageReference Include="xunit" Version="2.4.2" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+    <ProjectReference Include="..\Fdm.Common.TestHelpers\Fdm.Common.TestHelpers.csproj" />
+    <ProjectReference Include="..\Fdm.Common.Tests\Fdm.Common.Tests.csproj" />
+    <ProjectReference Include="..\Fdm.Common\Fdm.Common.csproj" />
+    <ProjectReference Include="..\Fdm.Data.ResourcePlanningTool.Dal\Fdm.Data.ResourcePlanningTool.Dal.csproj" />
+    <ProjectReference Include="..\Fdm.Data.ResourcePlanningTool.Models\Fdm.Data.ResourcePlanningTool.Models.csproj" />
+    <ProjectReference Include="..\Fdm.Data.ResourcePlanningTool.Repositories\Fdm.Data.ResourcePlanningTool.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

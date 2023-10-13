@@ -1,0 +1,90 @@
+﻿@model Fdm.Ams.ViewModels.HolidayViewModel
+
+
+@{
+    ViewBag.Title = "Holidays";
+}
+
+<div id="create-holiday-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog create-modal modal-xl modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create Holiday</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+            <form method="post" asp-action="Post">
+                <div class="modal-body show success-message-slider">
+                    <h1 class="h3">Details</h1>
+                    <div class="row pl-0">
+                        <div class="col-sm-6 form-group">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" onblur="this.value = this.value.trimEnd()" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-sm-6 form-group">
+                            <label asp-for="Description" class="form-label"></label>
+                            <input asp-for="Description" class="form-control" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-sm-6 form-group">
+                            <label asp-for="CountryId" class="form-label"></label>
+@*                            <select class="form-control" asp-for="CountryId"
+                                    asp-items="@(new SelectList(Model.CountryDictionary, "Key", "Value"))">
+                                <option value="">Please select Country</option>
+                            </select>*@
+                            <span asp-validation-for="CountryId" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-sm-6 form-group">
+                            <label asp-for="StartDate" class="form-label"></label>
+                            <input asp-for="StartDate" type="date" class="form-control" />
+                            <span asp-validation-for="StartDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-sm-6 form-group">
+                            <label asp-for="EndDate" class="form-label"></label>
+                            <input asp-for="EndDate" type="date" class="form-control" />
+                            <span asp-validation-for="EndDate" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer show create-button-slider">
+                        <div class="mr-lg-n3">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+                            <button type="button" class="btn btn-primary"
+                                    data-toggle="collapse" data-target=".create-button-slider" aria-expanded="false"
+                                    aria-controls="create-button-slider">
+                                Create
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="create-button-slider collapse">
+                        <div class="alert alert-warning text-center">Are you sure you want to add this Holiday?</div>
+                        <div class="text-right">
+                            <button class="btn btn-secondary" type="button"
+                                    data-toggle="collapse" data-target=".create-button-slider" aria-expanded="false"
+                                    aria-controls="create-button-slider">
+                                Cancel
+                            </button>
+                            <button id="confirm-create-new-country" type="submit"
+                                    class="btn btn-primary">
+                                Confirm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>

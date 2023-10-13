@@ -1,0 +1,204 @@
+﻿/* CALENDER APPEARENCE*/
+.weeklyCal {
+    width: 100%;
+    margin-top: 25px;
+    height: fit-content;
+}
+
+/*SEGMENT ABOVE CALENDER THAT HOLDS THE BUTTONS*/
+.weeklyCal .weeklyCalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    background: #fff;
+    box-shadow: 1px 1px 5px rgb(230, 230, 230);
+}
+
+/*PAGE NAVIGATION STYLING*/
+.page-navigation {
+    display: flex;
+    background:white; 
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navigation-segment {
+    margin: 10px;
+    font-size: 1.1em;
+    border: lightgrey 1px dotted;
+    border-radius: 10px;
+}
+
+.navigation-segment #prevNav.calNavButton {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.navigation-segment #nextNav.calNavButton {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.page-navigation-index {
+    margin: 0 15px;
+}
+/*THE MONTH TITLE*/
+.weeklyCal .weeklyCalHeader .currMonth {
+    color: #333;
+}
+
+input[type="date"] {
+    padding: 7px 13px;
+    transition: 0.5s;
+}
+
+input[type="date"]:hover {
+    background: #E0FFFF;
+}
+
+/*BUTTONS*/
+.calNavButton {
+    border: none;
+    outline: 0;
+    padding: 10px 15px;
+    transition: .2s;
+}
+
+.calNavButton:hover {
+    background: #dcdcdc;
+}
+
+.calNavButton:disabled, .calNavButton:disabled:hover {
+    color: white;
+    background: black;
+}
+
+
+/*THE CALENDER ITSELF, FORMATIING THE RESOURCES COLUMN AND DATES*/
+.calender {
+    display: grid;
+    grid-template-columns: 10% 90%;
+}
+
+
+/*THE RESOURCES COLUMN*/
+.header-column {
+    background-color: #ebebff;
+    text-align: center;
+    height: 100%;
+    box-shadow: 1px 1px 5px rgb(230, 230, 230);
+}
+
+#resources-header {
+    height: 136px;
+    border-bottom: lightgrey solid 1px;
+}
+
+.element {
+    height: 80px;
+    border-bottom: lightgrey dashed 1px;
+    font-size: 0.8em;
+}
+
+/*MONTH TITLES*/
+.monthRow {
+    border-right: 1px dashed rgb(210, 210, 210);
+    margin: 0;
+    text-align: center;
+    background: #fff;
+    height: 68px;
+}
+
+.monthRow:last-child {
+    border-right: none;
+}
+
+/*THE 10 WEEK GRID LAYOUT*/
+.tenWeekGrid {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    margin-top: 0;
+    box-shadow: 1px 1px 5px rgb(230, 230, 230);
+}
+
+
+/*THE 5 WEEK GRID LAYOUT*/
+.fiveWeekGrid {
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    margin-top: 0;
+    box-shadow: 1px 1px 5px rgb(230, 230, 230);
+}
+
+h6 {
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+/*THE 1 WEEK GRID LAYOUT*/
+.OneWeekGrid .day-element .top span {
+    font-size: 14px;
+    color: #333;
+}
+
+.OneWeekGrid .day-element .top {
+    border-right: 1px dashed rgb(210, 210, 210);
+    border-bottom: lightgrey solid 1px;
+    padding: 10px 20px;
+    height: 144px;
+}
+
+.OneWeekGrid .day-element {
+    width: 100%;
+    height: fit-content;
+    background: #fff;
+}
+
+.OneWeekGrid {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    border-top: 1px solid rgb(210, 210, 210);
+    border-bottom: 1px solid rgb(210, 210, 210);
+}
+
+
+/*PRESENT IN EACH TEMPLATE*/
+.currDateCol {
+    border-right: 1px dashed rgb(210, 210, 210);
+    border-bottom: lightgrey dashed 1px;
+    height: 80px;
+    width: 100%;
+}
+
+.currWeekCol {
+    border-right: 1px solid rgb(210, 210, 210);
+    background: #fff;
+    padding: 0;
+    height: fit-content;
+}
+
+h3 {
+    text-align: center;
+    padding: 5px;
+    height: 100%;
+    font-size: 1.7em;
+    border-right: 1px solid rgb(210, 210, 210);
+}
+
+h5, h6 {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 5%;
+    height: 68px;
+}
+
+.slot {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    width: 100%;
+    height: 100%;
+}

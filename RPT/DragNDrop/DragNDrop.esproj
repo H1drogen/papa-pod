@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.45-alpha">
+  <PropertyGroup>
+    <StartupCommand>npm start</StartupCommand>
+    <JavaScriptTestFramework>Jasmine</JavaScriptTestFramework>
+    <!-- Command to run on project build -->
+    <BuildCommand>
+    </BuildCommand>
+    <!-- Command to create an optimized build of the project that's ready for publishing -->
+    <ProductionBuildCommand>npm run build</ProductionBuildCommand>
+    <!-- Folder where production build objects will be placed -->
+    <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\DragNDrop</BuildOutputFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <TypeScriptConfiguration Remove="src\app\test-page\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\test-page\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\test-page\test-page.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\test-page\test-page.component.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\test-page\test-page.component.css" />
+  </ItemGroup>
+</Project>

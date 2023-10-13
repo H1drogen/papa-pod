@@ -1,0 +1,58 @@
+﻿@model Fdm.Ams.ViewModels.ErrorViewModel
+@{
+
+    ViewBag.Title = "Error";
+}
+<div class="container-fluid [ container-shadow ] [ blue-background--darker ] [ min-height--full ]">
+    <div class="row pt-5 justify-content-center">
+
+        @{
+            var colon = String.IsNullOrEmpty(@Model.ErrorMessage) ? "" : ":";
+            var genericMessage = "";
+            if (@Model.ErrorCode == 0 && String.IsNullOrEmpty(@Model.ErrorMessage))
+            {
+                genericMessage = "Error: Something went wrong!";
+            }
+        }
+        <div class="col-10 col-xl-6">
+            <div id="error-dialog" class="card">
+                <div class="card-header">
+                    <h2 class="text-white text-center mb-0"><i class="fa fa-exclamation-triangle mr-2" aria-hidden="true"></i>Error Details</h2>
+                </div>
+                <div class="card-body bg-white">
+                    <div class="card-title text-center">
+                        <p class="generic-error font-weight-normal mb-0">We're sorry, it looks like something has gone wrong!</p>
+                        <p class="mb-3 ml-1 font-italic"> Please see the error details below for more information.</p>
+                    </div>
+
+
+
+                    <table class="table table-sm table-borderless table-fit m-auto">
+                        <caption class="d-none">Error Information</caption>
+                        <tbody class="text-dark">
+                            <tr>
+                                <th scope="row">Error code:</th>
+                                <td>@Model.ErrorCode @colon  @Model.ErrorMessage @genericMessage</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Error message:</th>
+                                <td>@Model.ErrorDetails</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Date/Time:</th>
+                                <td> @Model.DateTime</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div class="card-footer">
+                    <p class="font-weight-normal mt-3">For help, please email <a href="mailto:academyadmin@fdmgroup.com">academyadmin@fdmgroup.com</a> with a screenshot of this error.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

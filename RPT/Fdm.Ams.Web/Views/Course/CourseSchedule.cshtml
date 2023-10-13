@@ -1,0 +1,78 @@
+﻿
+
+@{
+    ViewBag.Title = "Pathway Schedule";
+}
+
+<link rel="stylesheet" href="~/css/Calendar.css" />
+<link rel="stylesheet" href="~/css/dragAndDrop.css" />
+
+<div class="is-flex">
+    <partial name="_AcademyAdminAside" />
+
+    <section id="main-content" class="container-fluid [ min-height--full ] content__container">
+        <!-- THE NEW CALENDER FUNCTIONALITY-->
+        <div class="row">
+            <h2 class="text-center col-sm">Pathway Schedule</h2>
+        </div>
+
+        <div class="weeklyCal">
+            <span id="calendarTableFocus" hidden>CourseType</span>
+            <span id="calendarTableIdProp" hidden>pathwayId</span>
+            <span id="calendarTableRow" hidden>name</span>
+            <div class="weeklyCalHeader">
+                <h2 class="currMonth"></h2>
+                <div class="calButtons">
+                    <button id="OneWeek" class="calNavButton">1 Week</button>
+                    <button id="FiveWeeks" class="calNavButton">5 Weeks</button>
+                    <button id="TenWeeks" class="calNavButton">10 Weeks</button>
+                </div>
+                <div class="go-to-date">
+                    <input id="goToDateVal" type="date" />
+                    <button id="goToDateSub" class="calNavButton">Go To Date</button>
+                </div>
+                <div class="calButtons">
+                    <button id="prev" class="calNavButton">Prev</button>
+                    <button id="next" class="calNavButton">Next</button>
+                </div>
+            </div>
+
+            <div class="calender">
+                <div class="header-column">
+                    <h5 id="resources-header">Resources</h5>
+                    <div class="row-elements"></div>
+                </div>
+                <div>
+                    <div class="date"></div>
+                </div>
+            </div>
+            <div class="page-navigation">
+                <div class="navigation-segment">
+                    <button id="prevNav" class="calNavButton">
+                        <i class="fa fa-caret-left" aria-hidden="true"></i>
+                    </button>
+                    <span class="page-navigation-index">
+                        <span id="startIndex"></span> to <span id="endIndex"></span> of <b><span id="totalRowElements"></span></b>
+                    </span>
+                    <button id="nextNav" class="calNavButton">
+                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="unassigned">
+                <div class="inner-container">
+                    <h3><b>Unassigned</b></h3>
+                    <div class='unassigned-side-scroll slot' ondrop='dropUnassigned(event)' ondragover='startHoverUnassigned(event)' ondragleave='endHover(event)'></div>
+                </div>
+            </div>
+
+            <div id="update-modal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog update-modal modal-xl modal-dialog-scrollable" role="document"></div>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="~/js/Calender.js"></script>
+<script src="~/js/dragAndDrop.js"></script>
+@*<script src="~/js/AcademyAdmin/CourseSchedule.js" type="module"></script>*@
+   

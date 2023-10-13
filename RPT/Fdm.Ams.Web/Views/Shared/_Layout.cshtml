@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <partial name="_Head" />
+    @RenderSection("CustomStyles", required: false)
+</head>
+<body class="[ clear-header ]" data-spy="scroll" data-target="#scroll-nav">
+    <header>
+        <nav class="navbar navbar-expand-sm pr-md-1 pr-lg-3 fixed-top navbar-dark bg-darker container-shadow mb-3">
+            <a class="navbar-brand navbar-header pb-2 px-lg-2 pt-1 m-0" href="/">
+                <div class="row">
+                    <div class="col-5 col-lg-auto">
+                        <img class="logo-img" src="/lib/Content/Fdm-Web-Theme/Images/fdm-logo.png" alt="FDM logo" />
+                    </div>
+                    <div class="col mt-auto">
+                        <h1 class="d-none [ mb-0 ml-0 ml-lg-2 d-sm-inline-block ] [ first-heading ] [ beta ]">AMS - Resource Planner</h1>
+                        <div class="row">
+                            <small class="col text--smaller white-color">
+                                © @DateTime.Now.Year FDM Group
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end pb-1 pb-lg-0" id="navbarSupportedContent">
+                <ul class="navbar-nav align-items-end" id="headerNavItems">
+
+                     <li class="active">
+                        <a class="nav-link rounded p-2 d-flex align-items-baseline" href="@Url.Action("Index", "AcademyAdmin")">
+                            <i class="fa fa-unlock-alt pl-2 pl-md-0 pr-0 pr-lg-2 order-last order-lg-first d-inline-block d-md-none d-lg-inline-block" aria-hidden="true"></i>
+                            <span class="order-first order-lg-last">Academy Admin</span>
+                        </a>
+                    </li>
+
+                    
+                    <li class="@(ViewBag.Title == "Support" ? "active" : "")">
+                        <a class="nav-link rounded p-2 d-flex align-items-baseline" href="@Url.Action("Index", "Support")">
+                            <i class="fa fa-support pl-2 pl-md-0 pr-0 pr-lg-2 order-last order-lg-first d-inline-block d-md-none d-lg-inline-block" aria-hidden="true"></i>
+                            <span class="order-first order-lg-last">Support</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link nav-button rounded p-2 d-flex align-items-baseline" id="collapse-button">
+                            <i class="collapse-button fa fa-search pl-2 pl-md-0 pr-0 pr-lg-2 order-last order-lg-first d-inline-block d-md-none d-lg-inline-block" aria-hidden="true"></i>
+                            <span class="order-first order-lg-last">Search</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link rounded p-2 d-flex align-items-baseline" id="loginLink" href="@Url.Action("SignOut", "Account")">
+                            <i class="fa fa-sign-out pl-2 pl-md-0 pr-0 pr-lg-2 order-last order-lg-first d-inline-block d-md-none d-lg-inline-block" aria-hidden="true"></i>
+                            <span class="order-first order-lg-last">Sign Out</span>
+                        </a>
+                    </li>
+
+                    <li id="info-dropdown" class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-question-circle-o" aria-hidden="true"></i><i class="fa fa-angle-down icon-space--left" aria-hidden="true"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item @(ViewBag.Title == "Faqs" ? "active" : "")" href="@Url.Action("Index", "Faq")">FAQs<i class="fa fa-info-circle icon-space--left" aria-hidden="true"></i></a>
+                            <a class="dropdown-item @(ViewBag.Title == "Feedback" ? "active" : "")" href="@Url.Action("Index", "Feedback")">Feedback<i class="fa fa-commenting-o icon-space--left" aria-hidden="true"></i></a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="[ header__search-wrapper ]  [ col-xs-12 col-md-8 col-lg-6 ]  [ autocomplete-style ] align-items-baseline collapse pr-0">
+                    @Html.TextBox("TraineeName", null, new { @class = "header__search-field", @id = "header-consultant-search" })
+                    <span aria-label="close" class="cursor-pointer"><i class="pl-2 fa fa-times text-white fa-md" aria-hidden="true"></i></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    @RenderBody()
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

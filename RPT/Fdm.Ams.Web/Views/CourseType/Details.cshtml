@@ -1,0 +1,96 @@
+﻿@model Fdm.Ams.ViewModels.CourseTypeViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="is-flex">
+    <partial name="_AcademyAdminAside" />
+    <section id="main-content" class="container-fluid [ min-height--full ] content__container">
+
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Manage Pathway Type</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <form method="post" id="partialform" class="partialform" data-ajax="true" data-ajax-update="#partialform" data-ajax-mode="replace">
+                            <div class="modal-body modal-lg">
+
+                                <fieldset>
+                                    <div class="row row--spacing">
+                                        <span class="col-5">Name: </span>
+                                        <input type="hidden" class="form-control" asp-for="Id" id="Id">
+                                        <input asp-for="Name" class="col-6 text--smaller form-control">
+                                        <span class="col-5 text-danger"></span>
+                                        <span asp-validation-for="Name" class="col-6 text-danger"></span>
+                                    </div>
+                                    <div class="row row--spacing">
+                                        <span class="col-5 text-left">Abbreviation: </span>
+                                        <input asp-for="Abbreviation" class="col-6 text--smaller form-control " onkeyup="this.value=this.value.toUpperCase()">
+                                        <span class="col-5 text-danger"></span>
+                                        <span asp-validation-for="Abbreviation" class="col-6 text-danger"></span>
+                                    </div>
+                                    <div class="row row--spacing">
+                                        <span class="col-5">Colour: </span>
+                                        <input asp-for="Colour" type="color" class="col-6 form-control">
+
+                                    </div>
+                                    <div class="row row--spacing">
+                                        <span class="col-5 text-left">Is Concluding Pathway? </span>
+                                        <input type="checkbox" asp-for="IsConcludingPathway">
+
+                                    </div>
+                                </fieldset>
+
+                                <div class="modal-footer show edit-button-slider delete-button-slider">
+
+                                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target=".edit-button-slider" aria-expanded="false"
+                                            aria-controls="edit-button-slider">
+                                        Save changes
+                                    </button>
+
+                                    <button type="button" class="btn btn-danger" data-toggle="collapse" data-target=".delete-button-slider" aria-expanded="false"
+                                            aria-controls="delete-button-slider">
+                                        Delete
+                                    </button>
+
+                                    <a type="button" class="btn btn-secondary" asp-controller="CourseType" asp-action="Index">Cancel</a>
+
+                                </div>
+                                <div class="edit-button-slider collapse">
+                                    <div class="alert alert-warning text-center">
+                                        Are you sure you want to edit this Pathway Type?
+                                    </div>
+                                    <div class="text-right">
+                                        <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target=".edit-button-slider" aria-expanded="false"
+                                                aria-controls=" edit-button-slider">
+                                            Cancel
+                                        </button>
+                                        <button asp-action="Put" type="submit" class="btn btn-primary">Confirm</button>
+                                    </div>
+                                </div>
+
+                                <div class="delete-button-slider collapse">
+                                    <div class="alert alert-warning text-center">
+                                        Are you sure you want to delete this Pathway Type?
+                                    </div>
+                                    <div class="text-right">
+                                        <button class="btn btn-secondary" type="button" id="cancel-delete-new-course-type" data-toggle="collapse" data-target=".delete-button-slider" aria-expanded="false"
+                                                aria-controls="delete-button-slider">
+                                            Cancel
+                                        </button>
+                                        <button type="submit" asp-action="Delete" class="btn btn-danger">Confirm</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+    </section>
+</div>

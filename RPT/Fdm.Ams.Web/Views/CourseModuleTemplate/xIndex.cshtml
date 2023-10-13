@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Course Templates";
+}
+
+<div class="is-flex">
+    <partial name="_AcademyAdminAside" />
+
+    <section id="main-content" class="container-fluid [ min-height--full ] content__container">
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>Course Templates</h2>
+                </div>
+                <div class="col">
+                    <button type="button" id="create-new-btn" data-toggle="modal" data-target="#create-modal" class="btn btn-primary pull-right"><i class="fa fa-plus  [ icon-space--right ]"></i>Create New</button>
+                </div>
+            </div>
+        </div>
+
+        @if (ViewBag.SuccessMessage != null)
+        {
+            <div class="alert alert-success text-center alert-dismissible fade show mb-3" role="alert">
+                @ViewBag.SuccessMessage
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+        }
+        <div class="table-responsive mt-3">
+            <table id="course-module-templates" class="table w-100"></table>
+        </div>
+
+        <div id="update-template-modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog update-modal modal-xl modal-dialog-scrollable" role="document">
+            </div>
+        </div>
+        <partial name="_CreateCourseModuleTemplate" />
+    </section>
+</div>
+<script src="~/js/AcademyAdmin/CourseModuleTemplate.js" type="module"></script>
+

@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Fdm.Ams.Web": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:60000;http://localhost:60001"
+    }
+  }
+}

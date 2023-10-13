@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <!--<DocumentationFile>\fdm-web-api\Fdm.WebAPI\Fdm.WebAPI.xml</DocumentationFile>-->
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fdm.Data.ResourcePlanningTool.Dal\Fdm.Data.ResourcePlanningTool.Dal.csproj" />
+    <ProjectReference Include="..\Fdm.ResourcePlanningTool.Dtos\Fdm.ResourcePlanningTool.Dtos.csproj" />
+    <ProjectReference Include="..\Fdm.ResourcePlanningTool.Services\Fdm.ResourcePlanningTool.Services.csproj" />
+  </ItemGroup>
+</Project>

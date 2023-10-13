@@ -1,0 +1,116 @@
+﻿@model Fdm.Ams.ViewModels.HolidayViewModel
+
+
+@{
+    ViewBag.Title = "Holidays";
+}
+<div class="is-flex">
+    <partial name="_AcademyAdminAside" />
+
+
+    <section id="main-content" class="container-fluid [ min-height--full ] content__container">
+        <div>
+            <div class="row">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Manage Holiday @Model.Name</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+            <form method="post" asp-action="Edit"
+                  id="partial-form" data-ajax="true" data-ajax-update="#partial-form" data-ajax-mode="replace">
+                <div class="modal-body show success-message-slider">
+                  <h1 class="h3">Details</h1>
+                    <div class="row pl-0">
+                        <div class="col-sm-6 form-group">
+                          <input type="hidden" asp-for="Id" class="form-control">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                          <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                      <div class="col-sm-6 form-group">
+                            <label asp-for="Description" class="form-label"></label>
+                            <input asp-for="Description" class="form-control" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-sm-6 form-group">
+                            <label asp-for="CountryId" class="form-label"></label>
+                            <select class="form-control" asp-for="CountryId"
+                                  asp-items="@(new SelectList(Model.CountryDictionary, "Key", "Value"))">
+                                <option value="">Please select Country</option>
+                            </select>
+                          <span asp-validation-for="CountryId" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-sm-6 form-group">
+                            <label asp-for="StartDate" class="form-label"></label>
+                            <input asp-for="StartDate" type="date" class="form-control" />
+                            <span asp-validation-for="StartDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-sm-6 form-group">
+                            <label asp-for="EndDate" class="form-label"></label>
+                            <input asp-for="EndDate" type="date" class="form-control" />
+                            <span asp-validation-for="EndDate" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer show update-button-slider delete-button-slider">
+                        <div class="mr-auto m-n3">
+                            <button type="button" class="btn btn-danger" data-toggle="collapse" data-target=".delete-button-slider" aria-expanded="false"
+                                    aria-controls="delete-button-slider">
+                                Delete
+                            </button>
+                        </div>
+                        <div class="mr-lg-n3">
+@*                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" asp-action="Index">Cancel</button>*@
+                                    <a type="button" class="btn btn-secondary" data-dismiss="modal" asp-action="Index">Cancel</a>
+                            <button type="button" class="btn btn-primary"
+                                    data-toggle="collapse" data-target=".update-button-slider" aria-expanded="false"
+                                    aria-controls="update-button-slider">
+                                Update
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="update-button-slider collapse">
+                        <div class="alert alert-warning text-center">Are you sure you want to update this Holiday?</div>
+                        <div class="text-right">
+                            <button class="btn btn-secondary" type="button"
+                                    data-toggle="collapse" data-target=".update-button-slider" aria-expanded="false"
+                                    aria-controls="update-button-slider">
+                                Cancel
+                            </button>
+                            <button asp-action="Edit" type="submit"
+                                    class="btn btn-primary">
+                                Confirm
+                            </button>
+                        </div>
+                    </div>
+                    <div class="delete-button-slider collapse">
+                        <div class="alert alert-warning text-center">
+                            Are you sure you want to delete this Holiday?
+                        </div>
+                        <div class="text-right">
+                            <button class="btn btn-secondary" type="button" id="cancel-delete-trainer" data-toggle="collapse" data-target=".delete-button-slider" aria-expanded="false"
+                                    aria-controls="delete-button-slider">
+                                Cancel
+                            </button>
+                            <button type="submit" asp-action="Delete" class="btn btn-danger">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+</div>
+            </div>
+        </div>
+</div>

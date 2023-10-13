@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Pathways";
+}
+
+<div class="is-flex">
+    <partial name="_AcademyAdminAside" />
+
+    <section id="main-content" class="container-fluid [ min-height--full ] content__container">
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>@ViewBag.Title</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive mt-3">
+            <table id="pathways" class="table w-100"></table>
+        </div>
+        <div id="update-modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog update-modal modal-xl modal-dialog-scrollable" overflow-y: auto; role="document">
+            </div>
+        </div>
+    </section>
+</div>
+<script src="~/js/AcademyAdmin/Pathway.js" type="module"></script>

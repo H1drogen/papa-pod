@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <UserSecretsId>aspnet-Fdm.Ams.Web-3DDFDBF7-91A4-404D-983B-50FD34C52181</UserSecretsId>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Content\**" />
+    <Content Remove="Content\**" />
+    <EmbeddedResource Remove="Content\**" />
+    <None Remove="Content\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Region\xIndex.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\dragAndDrop.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\Content\Fdm-Web-Theme\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\lib\Content\Fdm-Web-Theme\Images\favicon.ico" />
+    <None Include="wwwroot\lib\Content\Fdm-Web-Theme\Images\fdm-logo.png" />
+    <None Include="wwwroot\lib\Content\Fdm-Web-Theme\Images\home-bg.svg" />
+    <None Include="wwwroot\lib\Content\Fdm-Web-Theme\Images\profile-placeholder.png" />
+    <None Include="wwwroot\lib\Content\Fdm-Web-Theme\Images\salesforce-logo.png" />
+    <None Include="wwwroot\lib\Content\Fdm-Web-Theme\Images\salesforce-logo.svg" />
+    <None Include="wwwroot\lib\Content\Fdm-Web-Theme\Images\Spin-1s-200px.gif" />
+    <None Include="wwwroot\lib\Content\Fdm-Web-Theme\Images\uc-bg.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fdm.Ams.Services\Fdm.Ams.Services.csproj" />
+    <ProjectReference Include="..\Fdm.Ams.ViewModels\Fdm.Ams.ViewModels.csproj" />
+  </ItemGroup>
+</Project>

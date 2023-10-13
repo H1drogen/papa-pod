@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fdm.Common\Fdm.Common.csproj" />
+    <ProjectReference Include="..\Fdm.Data.ResourcePlanningTool.Repositories\Fdm.Data.ResourcePlanningTool.Repositories.csproj" />
+    <ProjectReference Include="..\Fdm.ResourcePlanningTool.Dtos\Fdm.ResourcePlanningTool.Dtos.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Fdm.Ams.Models.Region>
+
+@{
+    ViewData["Title"] = "Regions";
+}
+
+<div class="is-flex">
+    <partial name="_AcademyAdminAside" />
+
+
+    <section id="main-content" class="container-fluid [ min-height--full ] content__container">
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>@ViewBag.Title</h2>
+                </div>
+                <div class="col">
+                    <p data-toggle="modal" data-target="#create-holiday-modal" class="btn btn-primary pull-right " asp-action="Create">
+                        <i class="fa fa-plus  [ icon-space--right ]"></i>@Html.ActionLink("Create New", "Create", new {  id="" }, new {  @class="butts" })
+                    </p>
+                </div>
+            </div>
+        </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Abbreviation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Abbreviation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+@*            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+    </section>
+
+</div>

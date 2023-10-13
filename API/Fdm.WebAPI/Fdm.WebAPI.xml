@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Fdm.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:Fdm.WebAPI.Extensions.ConfigureServicesExtensions.ConfigureAddTransentDependencyInjection(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method is used to register Dependency Injection with AdTransient service method
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Fdm.WebAPI.Extensions.ConfigureServicesExtensions.ConfigureCors(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)">
+            <summary>
+            This method is used to enable Cross-Origin Requests (CORS) in ASP.NET Core
+            The AddCors method call adds CORS services to the app's service container and enables to add policy name
+            The AddPolicy method provides options to AllowAnyOrigin, AllowAnyMethod and AllowAnyHeader methods
+            </summary>
+            <param name="services"></param>
+            <param name="policyName"></param>
+        </member>
+        <member name="M:Fdm.WebAPI.Extensions.ConfigureServicesExtensions.ConfigureDbContextPool(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+             <summary>
+            This method is used to register custom DbContext types in dependency injection which introduces pool of DbContext instances.
+            AddDbContextPool method is used at the time of DbContext instance is requested by a controller.
+            Once the request processing finalizes, any state on the instance is reset and the instance is itself returned to the pool.
+            Provides a UseSqlServer method which passed in db connection string
+             </summary>
+             <param name="services"></param>
+             <param name="configuration"></param>
+             <param name="connectionString"></param>
+        </member>
+        <member name="M:Fdm.WebAPI.Extensions.ConfigureServicesExtensions.GetXmlCommentsPath(System.String)">
+            <summary>
+            This method is used to retrieve XML file in the currrent application base directory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fdm.WebAPI.Extensions.HostBuilderExtensions.ConfigureLoggingWithDebugAndEventLogs(Microsoft.Extensions.Hosting.IHostBuilder)">
+            <summary>
+            This method is used to configure logging for AddDebug and AddEventLog methods (corresponds to Debug output and Windows Event Viewer)
+            Also ClearProviders method is used to remove all logger providers from builder
+            </summary>
+            <param name="hostBuilder"></param>
+        </member>
+    </members>
+</doc>

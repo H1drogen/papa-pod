@@ -1,0 +1,7 @@
+<div class="container">
+  <h2>Movies Watched</h2>
+  <div cdkDropList [cdkDropListData]="MoviesWatched"
+       [cdkDropListConnectedTo]="listTo" class="movie-list" (cdkDropListDropped)="onDrop($event)">
+    <div class="movie-block" *ngFor="let moviesWatched of MoviesWatched" cdkDrag>{{moviesWatched}}</div>
+  </div>
+</div>

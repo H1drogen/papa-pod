@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+.drag-border {
+  border: #d4000b dashed 2px;
+}
+
+.drag-handle {
+  cursor: move;
+  cursor: grab;
+}
+
+  .drag-handle:active {
+    cursor: grabbing;
+  }
+
+.drag-hint-border {
+  border: #006d02 solid 2px;
+}
+
+.drag-over-border {
+  border: #000000 solid 2px;
+}
+
+.drag-transit {
+  border: #008bad solid 2px;
+}
+
+.m-height {
+  min-height: 100px;
+}

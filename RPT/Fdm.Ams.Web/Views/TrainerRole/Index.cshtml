@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Fdm.Ams.ViewModels.TrainerRoleViewModel>
+@{
+    ViewBag.Title = "Trainer Roles";
+    Layout = "_Layout";
+}
+
+<div class="is-flex">
+    <partial name="_AcademyAdminAside" />
+
+    <section id="main-content" class="container-fluid [ min-height--full ] content__container">
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>@ViewBag.Title</h2>
+                </div>
+                <div class="col">
+                    <p data-toggle="modal" data-target="#create-trainer-role" id="link" class="btn btn-primary pull-right">
+                        <i class="fa fa-plus  [ icon-space--right ]"></i>@Html.ActionLink("Create New", "Create")
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        @if (ViewBag.SuccessMessage != null)
+        {
+            <div class="alert alert-success text-center alert-dismissible fade show mt-3" role="alert">
+                @ViewBag.SuccessMessage
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+
+        <div class="table-responsive mt-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td id="link" class="btn btn-secondary btn-sm px-4 manage">
+                                @Html.ActionLink("Manage", "Details", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div id="create-modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog create-modal modal-xl modal-dialog-scrollable" role="document">
+            </div>
+        </div>
+
+        <div id="update-trainerRole" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog update-modal" role="document"></div>
+        </div>
+    </section>
+</div>

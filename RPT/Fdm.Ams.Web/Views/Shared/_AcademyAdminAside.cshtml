@@ -1,0 +1,148 @@
+﻿@{
+    bool isOffices = ViewBag.Title == "Offices";
+    bool isCountries = ViewBag.Title == "Countries";
+    bool isRegions = ViewBag.Title == "Regions";
+    string extendLocationDropdown = isOffices || isCountries || isRegions ? "show active" : "";
+
+    string IsActive(string title)
+    {
+        return ViewBag.Title == title ? "active" : "";
+    }
+}
+
+<aside class="dark  aside--toggle-bar-padding  min-height--full admin-aside">
+
+    <div class="aside__toggle-bar">
+        <div class="min-height--full  position-relative">
+            <i class="fa fa-chevron-left"></i>
+        </div>
+    </div>
+    <div class="aside__inner">
+        <h2 class="text-center">Admin Pages</h2>
+        <ul id="admin-aside" class="nav  flex-column">
+            <li class="nav-item @(ViewBag.Title == "AcademyAdmin" ? "active" : "")">
+                <a href="/AcademyAdmin/Index" class="nav-link rounded p-2 d-flex align-items-baseline">
+                    @*In above code /AcademyAdmin needs changed to go to in index page of the section they are on*@
+                    <i class="fa fa-home mr-3"></i>
+                    <span class="order-lg-last">Home</span>
+                </a>
+            </li>
+            @*The below code is commented out due to authentication not being in place yet
+            however once auth is implimented then this code can be uncommented and AcademyAdmin
+            can be change to the correct authentication group*@
+            @* @if (User.IsInRole("AcademyAdmin") || User.IsInRole(""))
+            {*@
+            <li>
+                <div class="accordion" id="schedulingToolAccordion">
+                    <div class="bg-transparent">
+                        <div id="schedulingToolHeadingData">
+                            @{
+                                var TrainerSchedule = ViewBag.Title == "Trainer Schedule";
+                                var PathwaySchedule = ViewBag.Title == "Pathway Schedule";
+                                var VenueSchedule = ViewBag.Title == "Venue Schedule";
+                                var extendedSchedulingToolLinksDropdownMenu = TrainerSchedule || PathwaySchedule || VenueSchedule ? "show" : "";
+
+                            }
+                            <a class="nav-link rounded p-2 d-flex align-items-baseline collapsed" data-toggle="collapse" data-target="#schedulingToolLinks" aria-expanded="true">
+                                <i class="fa fa-clock-o mr-3" aria-hidden="true"></i>
+                                <span>Resource Planner</span>
+                                <i class="fa fa-chevron-down ml-2" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="schedulingToolLinks" class="collapse @extendedSchedulingToolLinksDropdownMenu" aria-labelledby="schedulingToolHeadingData" data-parent="#schedulingToolAccordion">
+                            <div class="ml-4 border-left">
+                                @Html.ActionLink("Trainers Schedule", "TrainerSchedule", "Trainer", null, new { @class = ViewBag.Title == "Trainer Schedule" ? "nav-link active" : "nav-link" })
+                                @Html.ActionLink("Pathway Schedule", "CourseSchedule", "Course", null, new { @class = ViewBag.Title == "Pathway Schedule" ? "nav-link active" : "nav-link" })
+                                @Html.ActionLink("Venue Schedule", "VenueSchedule", "Venue", null, new { @class = ViewBag.Title == "Venue Schedule" ? "nav-link active" : "nav-link" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="accordion" id="coursesAccordion">
+                    <div class="bg-transparent">
+                        <div id="coursesHeadingData">
+                            @{
+                                var ProgramTemplates = ViewBag.Title == "Pathway Templates";
+                                var CourseTemplates = ViewBag.Title == "Course Templates";
+                                var ProgrammeTypes = ViewBag.Title == "Pathway Types";
+                                var Programme = ViewBag.Title == "Programme";
+                                var Pathway = ViewBag.Title == "Pathways";
+                                var extendedCoursesLinksDropdownMenu = ProgramTemplates || CourseTemplates || ProgrammeTypes || Programme ||Pathway ? "show" : "";
+                            }
+                            <a class="nav-link rounded p-2 d-flex align-items-baseline collapsed" data-toggle="collapse" data-target="#coursesLinks" aria-expanded="true">
+                                <i class="fa fa-university mr-3" aria-hidden="true"></i>
+
+                                <span>Pathway Info</span>
+                                <i class="fa fa-chevron-down ml-2" aria-hidden="true"></i>
+
+                            </a>
+                        </div>
+                        <div id="coursesLinks" class="collapse @extendedCoursesLinksDropdownMenu" aria-labelledby="coursesHeadingData" data-parent="#coursesAccordion">
+                            <div class="ml-4 border-left">
+                                @Html.ActionLink("Pathways", "Index", "Course", null, new { @class = ViewBag.Title == "Pathways" ? "nav-link active" : "nav-link" })
+                                @Html.ActionLink("Pathway Templates", "Index", "CourseTemplate", null, new { @class = ViewBag.Title == "Pathway Templates" ? "nav-link active" : "nav-link" })
+                                @Html.ActionLink("Course Templates", "Index", "CourseModuleTemplate", null, new { @class = ViewBag.Title == "Course Templates" ? "nav-link active" : "nav-link" })
+                                @Html.ActionLink("Pathway Types", "Index", "CourseType", null, new { @class = ViewBag.Title == "Pathway Types" ? "nav-link active" : "nav-link" })
+                                @Html.ActionLink("Programme", "Index", "Programme", null, new { @class = ViewBag.Title == "Programme" ? "nav-link active" : "nav-link" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="accordion" id="coursesAccordion">
+                    <div class="bg-transparent">
+                        <div id="coursesHeadingData">
+                            <a class="nav-link rounded p-2 d-flex align-items-baseline collapsed" data-toggle="collapse" data-target="#locationLink" aria-expanded="true">
+                                <i class="fa fa-map-marker mr-3" aria-hidden="true"></i>
+                                <span>Locations</span>
+                                <i class="fa fa-chevron-down ml-2" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="locationLink" class="collapse @extendLocationDropdown" aria-labelledby="coursesHeadingData" data-parent="#coursesAccordion">
+                            <div class="ml-4 border-left">
+                                <a asp-controller="Region" asp-action="Index" class='nav-link text-white @IsActive("Regions")'>Regions</a>
+                                <a asp-controller="Country" asp-action="Index" class='nav-link text-white @IsActive("Countries")'>Countries</a>
+                                <a asp-controller="Office" asp-action="Index" class='nav-link text-white @IsActive("Offices")'>Offices</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="accordion" id="trainerInfoAccordion">
+                    <div class="bg-transparent">
+                        <div id="trainerInfoHeadingData">
+                            @{
+                                var TrainerInfo = ViewBag.Title == "Trainers";
+                                var TrainerRoleInfo = ViewBag.Title == "Trainer Roles";
+                                var extendedTrainerInfoLinksDropdownMenu = TrainerInfo || TrainerRoleInfo ? "show" : "";
+
+                            }
+                            <a class="nav-link rounded p-2 d-flex align-items-baseline collapsed" data-toggle="collapse" data-target="#trainerInfoLinks" aria-expanded="true">
+                                <i class="fa fa-clock-o mr-3" aria-hidden="true"></i>
+                                <span>Trainer Info</span>
+                                <i class="fa fa-chevron-down ml-2" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="trainerInfoLinks" class="collapse @extendedTrainerInfoLinksDropdownMenu" aria-labelledby="trainerInfoHeadingData" data-parent="#trainerInfoAccordion">
+                            <div class="ml-4 border-left">
+                                @Html.ActionLink("Trainers", "Index", "Trainer", null, new { @class = ViewBag.Title == "Trainers" ? "nav-link active" : "nav-link" })
+                                @Html.ActionLink("Trainer Roles", "Index", "TrainerRole", null, new { @class = ViewBag.Title == "Trainer Roles" ? "nav-link active" : "nav-link" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item @(ViewBag.Title == "Holidays" ? "active" : "")">
+                <a href="/Holiday/Index" class="nav-link rounded p-2 d-flex align-items-baseline @(ViewBag.Title == "Holidays" ? "nav-link active" : "nav-link")">
+                    <i class="fa fa-user mr-3"></i>
+                    <span class="order-lg-last">Holidays</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>

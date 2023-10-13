@@ -1,0 +1,57 @@
+﻿﻿<form id="activity-form">
+    <div id="trainer-schedule-update-activity" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Course</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body modal-lg">
+                    <input type="hidden" class="form-control" id="activity-id">
+                    <div class="row row--spacing">
+                        <span class="col-5">Name: </span>
+                        <input class="col-6 text--smaller" id="activity-name" required />
+                    </div>
+                    <div class="row row--spacing">
+                        <span class="col-5">Description: </span>
+                        <input class="col-6 text--smaller" id="activity-description" required />
+                    </div>
+                    <div class="row row--spacing">
+                        <span class="col-5">Preperation Notes: </span>
+                        <input class="col-6 text--smaller" id="activity-prep" required />
+                    </div>
+                    <div class="row row--spacing">
+                        <span class="col-5 text-left">Venue: </span>
+                        <select id="activity-venue" class="form-select"></select>
+                    </div>
+                    <div class="row row--spacing">
+                        <span class="col-5">Start Date: </span>
+                        <span id="activity-start"></span>
+                    </div>
+                    <div class="row row--spacing">
+                        <span class="col-5">End Date: </span>
+                        <span id="activity-end"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="activity-delete" type="button" class="btn btn-outline-danger">Delete</button>
+                    <button type="submit" class="btn btn-primary">Save as draft</button>
+                    <div class="border-top mt-3 pt-1" id="activity-delete-accordion">
+                        <div>
+                            <span>
+                                Are you sure you wish to delete this activity? Once deleted, it can't be recovered!
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button id="activity-delete-confirm" type="button" class="btn btn-danger">
+                                Confirm Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

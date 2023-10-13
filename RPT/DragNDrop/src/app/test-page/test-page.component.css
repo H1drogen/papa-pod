@@ -1,0 +1,80 @@
+.layout {
+  text-align: center;
+  height: 150px;
+  width: 200px;
+  border: 1px solid black;
+}
+
+.editbutton {
+  background-color: lime; /* Green */
+  color: white;
+  padding: 12px;
+}
+
+.deletebutton {
+  background-color: orangered; /* RED */
+  color: white;
+  padding: 12px;
+}
+
+
+.cancelbutton {
+  background-color: aqua; /* Blue */
+  color: white;
+  padding: 12px;
+}
+
+.retrybutton {
+  background-color: pink;
+  color: black;
+  padding: 12px;
+}
+
+input[type=number], select {
+  width: 60%;
+  background-color: yellow;
+  font-size: 18px;
+  display: inline-block;
+  text-align: center;
+  /* border: 2px solid #ccc; */
+  /* border-radius: 4px; */
+  /* box-sizing: border-box; */
+}
+
+.fontawesomesvg {
+  width: 1em;
+  height: 1em;
+  vertical-align: -.125em;
+}
+
+.reset {
+  text-align: center;
+  padding: 120px;
+}
+
+
+.pageset {
+  width: 100%;
+  padding-left: 200px;
+  padding-right: 100px;
+}
+
+.button1 {
+  border-radius: 2px;
+}
+
+.button2 {
+  border-radius: 4px;
+}
+
+.button3 {
+  border-radius: 8px;
+}
+
+.button4 {
+  border-radius: 12px;
+}
+
+.button5 {
+  border-radius: 50%;
+}

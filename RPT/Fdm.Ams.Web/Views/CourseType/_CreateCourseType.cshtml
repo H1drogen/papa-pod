@@ -1,0 +1,69 @@
+﻿@model Fdm.Ams.ViewModels.CourseTypeViewModel
+
+<div id="create-course-type" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create Pathway Type</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+            <form method="post" asp-action="Post">
+                <div class="modal-body modal-lg">
+                    <fieldset>
+                        <div class="row row--spacing">
+                            <span class="col-5">Name: </span>
+                            <input asp-for="Name" class="col-6 text--smaller form-control" onblur="this.value = this.value.trimEnd()">
+                            <span class="col-5 text-danger"></span>
+                            <span asp-validation-for="Name" class="col-6 text-danger"></span>
+                        </div>
+                        <div class="row row--spacing">
+                            <span class="col-5 text-left">Abbreviation: </span>
+                            <input asp-for="Abbreviation" class="col-6 text--smaller form-control " onkeyup="this.value = this.value.toUpperCase()">
+                            <span class="col-5 text-danger"></span>
+                            <span asp-validation-for="Abbreviation" class="col-6 text-danger"></span>
+                        </div>
+                        <div class="row row--spacing">
+                            <span class="col-5">Colour: </span>
+                            <input  asp-for="Colour" type="color" class="col-6 form-control">
+
+                        </div>
+                        <div class="row row--spacing">
+                            <span class="col-5 text-left">Is Concluding Pathway? </span>
+                            <input type="checkbox"  asp-for="IsConcludingPathway">
+
+                        </div>
+                    </fieldset>
+
+                    <div  class="modal-footer show create-button-slider">
+
+                        <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button  type="button" class="btn btn-primary" data-toggle="collapse" data-target=".create-button-slider" aria-expanded="false"
+                                aria-controls="create-button-slider">
+                            Create
+                        </button>
+
+                    </div>
+                    <div  class="create-button-slider collapse">
+                        <div class="alert alert-warning text-center">
+                            Are you sure you want to add this Pathway Type?
+                        </div>
+                        <div class="text-right">
+                            <button type="button"  class="btn btn-secondary" data-toggle="collapse" data-target=".create-button-slider" aria-expanded="false"
+                                    aria-controls="create-button-slider">
+                                Cancel
+                            </button>
+                            <button  type="submit" class="btn btn-primary">Confirm</button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

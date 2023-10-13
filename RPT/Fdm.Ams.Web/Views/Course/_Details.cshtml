@@ -1,0 +1,110 @@
+﻿@using Fdm.Ams.ViewModels
+@model CourseViewModel
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title">Pathway @Model.PathwayCode</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body show success-message-slider">
+
+    <form method="post" asp-action="Post"
+          id="partial-form" data-ajax="true" data-ajax-update="#partial-form" data-ajax-mode="replace">
+      
+            <h1 class="h3">Details</h1>
+            <div class="row pl-0">
+                 <input type="hidden" asp-for="Id" class="form-control">
+                <div class="col-sm-6 form-group">
+                    <label asp-for="PathwayCode" class="form-label"></label>
+                    <input asp-for="PathwayCode" class="form-control" readonly />
+                </div>
+
+                <div class="col-sm-6 form-group">
+                    <label asp-for="StartDate" class="form-label"></label>
+                    <input type="datetime-local" asp-for="StartDate" class="form-control" readonly />
+                </div>
+
+                <div class="col-sm-6 form-group">
+                    <label asp-for="EndDate" class="form-label"></label>
+                    <input type="datetime-local" asp-for="EndDate" class="form-control" readonly />
+                </div>
+
+
+                <div class="col-sm-6 form-group">
+                    <label asp-for="CreatedBy" class="form-label"></label>
+                    <input asp-for="CreatedBy" class="form-control" readonly  />
+                </div>
+
+                <div class="col-sm-6 form-group">
+                    <label asp-for="IsPond" class="form-label"></label>
+                    <select asp-for="IsPond" class="form-control" disabled >
+                        <option value="false">No</option>
+                        <option value="true">Yes</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-6 form-group">
+                    <label asp-for="Cancelled" class="form-label"></label>
+                    <select asp-for="Cancelled" class="form-control" disabled >
+                        <option value="false">No</option>
+                        <option value="true">Yes</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-6 form-group">
+                    <label asp-for="MaxCapacity" class="form-label"></label>
+                    <input asp-for="MaxCapacity" class="form-control" readonly />
+                </div>
+
+
+                <div class="col-sm-6 form-group">
+                    <label asp-for="PathwayTypeId" class="form-label"></label>
+                    <select class="form-control" asp-for="PathwayTypeId"
+                            asp-items="@(new SelectList(Model.PathwayTypesDictionary, "Key", "Value"))" disabled >
+                        <option value="">Please select PathwayType</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-6 form-group">
+                    <label asp-for="RegionId" class="form-label"></label>
+                    <select class="form-control" asp-for="RegionId"
+                            asp-items="@(new SelectList(Model.RegionsDictionary, "Key", "Value"))" disabled>
+                        <option value="">Please select Region</option>
+                    </select>
+                    <span asp-validation-for="RegionId" class="text-danger"></span>
+                </div>
+
+                <div class="col-sm-6 form-group">
+                    <label asp-for="ProgrammeId" class="form-label"></label>
+                    <select class="form-control" asp-for="ProgrammeId"
+                            asp-items="@(new SelectList(Model.ProgrammesDictionary, "Key", "Value"))" disabled >
+                        <option value="">Please select Programme</option>
+                    </select>
+                    <span asp-validation-for="ProgrammeId" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <h2 class="h3">Courses</h2>
+            <div class="mr-lg-n3 p-2 mt-2">
+                @foreach (var course in Model.CoursesDictionary)
+                {
+                    <button type="button" class="btn bg-dark rounded text-white">@course.Value</button>
+                }
+                
+            </div>
+            <div class="modal-footer show update-button-slider delete-button-slider">
+
+                <div class="mr-lg-n3">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+
+    </form>
+    </div>
+</div>
+

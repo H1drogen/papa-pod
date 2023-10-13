@@ -1,0 +1,39 @@
+<div class="pageset">
+  <table>
+    <tr *ngFor="let enum of numbersAre;let i = index;">
+      <ng-container *ngFor="let item of numbersAre.slice(i*numberOnRow , (i+1)*numberOnRow); let x=index">
+        <ng-container *ngIf='((x+1)-1)+i*numberOnRow != i && item!=null || i===0'>
+          <td class="layout">
+            <ng-container *ngIf='((x+1)-1)+i*numberOnRow!=editIndex'>
+              <p style="font-size:18px">{{item}}</p>
+              <button class="editbutton button4" (click)='editClick(((x+1)-1)+i*numberOnRow, item)'><svg class='fontawesomesvg'><use xlink:href="assets/svg-icon-component.svg#edit-image"></use></svg></button>
+              <button class="deletebutton button4" (click)='deleteClick(((x+1)-1)+i*numberOnRow, item)'><svg class='fontawesomesvg'><use xlink:href="assets/svg-icon-component.svg#trash-image"></use></svg></button>
+            </ng-container>
+            <ng-container *ngIf="editIndex==((x+1)-1)+i*numberOnRow">
+              <div *ngIf='buttonType=="Delete"'>
+              <tr>
+                <td style="font-size:16px" class="col-md-3">
+                  Confirm Delete of {{valueIs}}?
+                </td>
+              </tr>
+              <button class="cancelbutton button4" (click)='editCancel()'><svg class='fontawesomesvg'><use xlink:href="assets/svg-icon-component.svg#cancel-image"></use></svg></button>
+              <button class="deletebutton button4" (click)='deleteRow(((x+1)-1)+i*numberOnRow)'><svg class='fontawesomesvg'><use xlink:href="assets/svg-icon-component.svg#trash-image"></use></svg></button>
+</div>
+<div *ngIf='buttonType=="Edit"'>
+  <tr>
+    <td class="col-md-3">
+      <input type="number"
+             [(ngModel)]=this.valueIs>
+    </td>
+  </tr>
+  <button class="editbutton button4" (click)='editUpdate(((x+1)-1)+i*numberOnRow,valueIs)'><svg class='fontawesomesvg'><use xlink:href="assets/svg-icon-component.svg#edit-image"></use></svg></button>
+  <button class="cancelbutton button4" (click)='editCancel()'><svg class='fontawesomesvg'><use xlink:href="assets/svg-icon-component.svg#cancel-image"></use></svg></button>
+</div>
+                    </ng-container>
+                </td>
+            </ng-container>
+        </ng-container>
+    </tr>
+  </table>
+</div>
+<p class="reset"><button class="retrybutton button3" (click)='generateNumbers()'>Reset</button></p>

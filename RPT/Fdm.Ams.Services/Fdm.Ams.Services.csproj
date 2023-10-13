@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="TimeZoneConverter" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fdm.Ams.Common\Fdm.Ams.Common.csproj" />
+    <ProjectReference Include="..\Fdm.Ams.Dal\Fdm.Ams.Dal.csproj" />
+    <ProjectReference Include="..\Fdm.Ams.Models\Fdm.Ams.Models.csproj" />
+    <ProjectReference Include="..\Fdm.Ams.ViewModels\Fdm.Ams.ViewModels.csproj" />
+  
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,43 @@
+<div class="container">
+  <p>
+    <h2>Trainer Courses</h2><br>
+    <div>
+      <div>
+        <tr>
+          <td>{{errorMessage}}  </td>
+        </tr>
+      </div>
+
+    </div>
+    <br><br>
+
+
+    <table width=1325 border=1>
+      <div>
+      <tr>
+        <td width=120><b>ID</b></td>
+        <td width=420><b>Description</b></td>
+        <td width=420><b>Name</b></td>
+        <td width=220><b>Start Date</b></td>
+        <td width=220><b>End Date</b></td>
+
+      </tr>
+</div>
+<div *ngFor="let shareIs of shareAre  ; let i=index">
+
+
+    <td width=120>{{shareIs.id}}</td>
+    <td width=360>{{shareIs.description}}</td>
+    <td width=360>{{shareIs.name}}</td>
+    <td width=260>{{shareIs.startDate | date :  "EEEE dd MMMM yyyy"}}</td>
+    <td width=260>{{shareIs.endDate | date :  "EEEE dd MMMM yyyy"}}</td>
+    <td style="width:300px; background-color: pink;" *ngIf="notDeleted==i" then>
+      {{deleteMessage}}
+    </td>
+    <!--<td><button class="deletebutton" (click)='deleteAShare(shareIs.share_id, shareIs.company_id, shareIs.company.name, shareIs.currency_id, shareIs.currency.name, shareIs.currency.symbol,i)'><svg class='fontawesomesvg'><use xlink:href="assets/svg-icon-component.svg#trash-image"></use></svg></button></td>
+
+  <td><button class="editbutton" (click)='editAShare(shareIs.share_id, shareIs.company_id,shareIs.company.name, shareIs.currency_id, shareIs.currency.name, shareIs.currency.symbol, i)'><svg class='fontawesomesvg'><use xlink:href="assets/svg-icon-component.svg#edit-image"></use></svg></button></td>-->
+
+     </div>
+      </table>
+    </div>

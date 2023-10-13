@@ -1,0 +1,22 @@
+<div>
+  <h3>Move Employee via Drag Drop</h3>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="panel m-height panel-default" droppable (onDrop)="removeDragDropItem($event)">
+        <div class="panel-heading">Drag and drop items here</div>
+        <div class="panel-body">
+          <li draggable *ngFor="let item of employeeList" [dragData]="item" class="list-group-item"> {{item.empName}} <small> ({{item.designation}})</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="panel m-heightpanel-default" droppable (onDrop)="addDragDropItem($event)">
+        <div class="panel-heading">Drag and drop items here</div>
+        <div class="panel-body">
+          <li *ngFor="let item of droppedEmployeeList" class="list-group-item" draggable [dragData]="item">{{item.empName}} <small> ({{item.designation}})</small></li>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

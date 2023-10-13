@@ -1,0 +1,52 @@
+﻿<div id="course-update" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title update-course-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <div class="modal-body modal-update-course-body">
+                <div id="courseShuffle"></div>
+            </div>
+            <div class="modal-footer modal-update-course">
+                <button id="modal-reset-update" type="button" disabled class="btn btn-outline-danger mr-auto">Reset</button>
+                <button id="modal-save-update" type="button" class="btn btn-primary" disabled >Update</button>
+            </div>
+            <!-- Changes done to show banner successmessage when click on edit resourcer in pathwayschedule-start -->
+            <div id="update-button-slider" class="d-none">
+                <div class="alert alert-warning m-4 m-lg-3 ml-xl-3 mr-md-4 text-center">Are you sure you want to update this Pathway?</div>
+                <div class="text-right">
+                    <button class="btn btn-secondary mb-4 ml-2" type="button" id="cancel-update-course">Cancel</button>
+                    <button id="confirm-update-course" type="button"  class="btn btn-primary mb-4 ml-2 mr-2 mr-4 mr-lg-3">Confirm</button>
+                </div>
+            </div>
+            <div id="update-reset-button-slider" class="d-none">
+                <div class="alert alert-warning m-4 m-lg-3 ml-xl-3 mr-md-4 text-center">Are you sure you want to reset this Pathway?</div>
+                <div class="text-right">
+                    <button class="btn btn-secondary mb-4 ml-2" type="button" id="cancel-update-reset-course">Cancel</button>
+                    <button id="confirm-update-reset-course" type="button" class="btn btn-primary mb-4 ml-2 mr-2 mr-4 mr-lg-3">Confirm</button>
+                </div>
+            </div>
+            <div id="save-button-slider" class="d-none">
+                <div class="alert alert-warning text-center m-4 ml-xl-3 mr-md-4">Are you sure you want to save this Pathway?</div>
+                <div class="text-right">
+                    <button class="btn btn-secondary mb-4 ml-2" type="button" data-dismiss="modal" id="cancel-save-course">Cancel</button>
+                    <button id="confirm-save-update-course" type="button" class="btn btn-primary mb-4 ml-2 mr-2 mr-4">Confirm</button>
+                </div>
+            </div>
+             <div id="reset-button-slider" class="d-none">
+                <div class="alert alert-warning text-center m-4 ml-xl-3 mr-md-4">Are you sure you want to reset your unsaved changes?</div>
+                <div class="text-right">
+                    <button class="btn btn-secondary mb-4 ml-2" type="button" data-dismiss="modal" id="cancel-reset-course">Cancel</button>
+                    <button id="confirm-reset-course" type="button" class="btn btn-primary mb-4 ml-2 mr-2 mr-4">Confirm</button>
+                </div>
+            </div>
+            <!-- Changes done to show banner successmessage when click on edit resourcer in pathwayschedule-end -->
+        </div>
+    </div>
+</div>
+
+

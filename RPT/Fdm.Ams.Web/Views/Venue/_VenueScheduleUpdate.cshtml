@@ -1,0 +1,74 @@
+﻿<div id="venue-schedule-update" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Course</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body modal-lg">
+                <div class="row row--spacing">
+                    <span class="col-5">Name: </span>
+                    <input class="col-6 text--smaller" id="content-name" />
+                </div>
+                <div class="row row--spacing">
+                    <span class="col-5">Description: </span>
+                    <input class="col-6 text--smaller" id="content-description" />
+                </div>
+                <div class="row row--spacing">
+                    <span class="col-5">Preparation Notes: </span>
+                    <input class="col-6 text--smaller" id="content-prep" />
+                </div>
+                <div class="row row--spacing">
+                    <span class="col-5 text-left">Trainer: </span>
+                    <select id="trainerDropdown" name="state"></select>
+                </div>
+                <div class="row mb-0 mt-4">
+                    <div class="col-6">
+                        <div class="border rounded px-2 py-1">
+                            <p class="mb-0">Course</p>
+                            <div class="row">
+                                <div class="col-6 small">
+                                    Start: <span id="module-start-date"></span>
+                                </div>
+                                <div class="col-6 small">
+                                    End: <span id="module-end-date"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="border rounded px-2 py-1">
+                            <p class="mb-0">Programme</p>
+                            <div class="row">
+                                <div class="col-6 small">
+                                    Start: <span id="course-start-date"></span>
+                                </div>
+                                <div class="col-6 small">
+                                    End: <span id="course-end-date"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+                <span id="venue-id"></span>
+                <span id="current-trainer-id"></span>
+            </div>
+            <div class="modal-footer">
+                <button id="modal-save-venue" type="button" class="btn btn-primary">Save changes</button>
+                <button id="unassign" type="button" class="btn btn-primary">Unassign</button>
+                <button id="delete-btn" type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="border-top mt-3 pt-1" id="confirm-delete">
+                    <div>
+                        <span>Are you sure you wish to delete this course module? Once deleted, it can't be recovered</span>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button id="confirm-delete-btn" type="button" class="btn btn-danger">Confirm Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

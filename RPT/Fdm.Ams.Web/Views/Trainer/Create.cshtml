@@ -1,0 +1,98 @@
+﻿@model Fdm.Ams.ViewModels.TrainerViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<div class="is-flex">
+    <partial name="_AcademyAdminAside" />
+
+    <section id="main-content" class="container-fluid [ min-height--full ] content__container">
+        <h1>Create</h1>
+        <h4>Trainer</h4>
+        <hr />
+        <div class="row">
+            <div class="modal-content">
+                <div class="col-md-4">
+                    <form method="post" asp-action="Post">
+                        <div class="modal-body show success-message-slider">
+                            <h1 class="h3">Create</h1>
+                            <div class="row pl-0">
+                                <div class="form-group">
+                                    <label asp-for="FirstName" class="control-label"></label>
+                                    <input asp-for="FirstName" class="form-control" />
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="LastName" class="control-label"></label>
+                                    <input asp-for="LastName" class="form-control" />
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Email" class="control-label"></label>
+                                    <input asp-for="Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-sm-6 form-group">
+                                    <label asp-for="OfficeId" class="form-label"></label>
+                                    <select class="form-control" asp-for="OfficeId"
+                                            asp-items="@(new SelectList(Model.OfficeDictionaries, "Key", "Value"))">
+                                        <option value="">Please select Office</option>
+                                    </select>
+                                    <span asp-validation-for="OfficeId" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="TeamName" class="control-label"></label>
+                                    <input asp-for="TeamName" class="form-control" />
+                                    <span asp-validation-for="TeamName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Username" class="control-label"></label>
+                                    <input asp-for="Username" class="form-control" />
+                                    <span asp-validation-for="Username" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer show create-button-slider">
+                                <div class="mr-lg-n3">
+                                    <a asp-action="Index" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+
+                                    <button type="button" class="btn btn-primary"
+                                            data-toggle="collapse" data-target=".create-button-slider" aria-expanded="false"
+                                            aria-controls="create-button-slider">
+                                        Create
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="create-button-slider collapse">
+                                <div class="alert alert-warning text-center">Are you sure you want to add this Trainer?</div>
+                                <div class="text-right">
+                                    <button class="btn btn-secondary" type="button"
+                                            data-toggle="collapse" data-target=".create-button-slider" aria-expanded="false"
+                                            aria-controls="create-button-slider">
+                                        Cancel
+                                    </button>
+                                    <button id="confirm-create-new-country" type="submit"
+                                            class="btn btn-primary">
+                                        Confirm
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
